@@ -1,0 +1,582 @@
+/* css mặc định */
+/* reset css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Oswald", serif;
+}
+html{
+    /* di chuyển trên xuống mượt hơn  */
+    scroll-behavior: smooth;
+}
+/* HEADER  */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.section-padding{
+    padding: 80px 0;
+}
+header{
+    /* background-color: black; */
+    /* lướt đến đâu thì header theo đến đó  */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.199);
+}
+header .header-content{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+
+header a{
+    color: white;
+    /* xóa gạch ngang */
+    text-decoration: none;
+}
+header nav li{
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 17px;
+    /* viết hoa  */
+    text-transform: uppercase;
+    /* viết thường lowercase */
+    /* chữ đầu hoa
+    text-transform: capitalize; */
+}
+
+header .header-content-logo{
+    font-size: 32px;
+    /* độ dày của chữ */
+    font-weight: bold;
+}
+ header nav a:hover{
+    color: #e62b4a;
+ }
+
+ header nav .active a{
+    color: #e62b4a;
+ }
+/* BANNER  */
+.hero-banner{
+    height: 100vh;
+
+    background-image: url(../img/home_slider.jpg);
+    background-repeat: no-repeat;
+    /* kích thước ảnh  */
+    background-size: cover;
+    /* Thấy phần nào của ảnh  */
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+.hero-banner p{
+    font-size: 25px;
+}
+.hero-banner .sub-title{
+    font-size: 30px;
+}
+.hero-banner h1{
+    font-size: 75px;
+    /* chiều cao một dòng nội dung  font size + 8px */
+    line-height: 83px;
+    margin-bottom: 15px;
+}
+.hero-banner button{
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #e62b4a; 
+    text-transform: uppercase;
+    color: white;
+    font-weight: 300;
+    /* thay đổi hiển thị con trỏ chuột  */
+    /* pointer tự động có bàn tay khi đưa trỏ chuột vào  */
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.hero-banner button:hover{
+    background-color: #af2239;
+}
+
+.hero-banner i{
+    animation-name: arrowGoDown;
+    /* thời gian  */
+    animation-duration: 2s;
+    /* số lần chạy  */
+    animation-iteration-count: infinite;
+
+}
+/* SERVICE  */
+.service{
+    background-color: black;
+    color: white;
+    text-align: center;
+    /* padding: 90px 0; */
+}
+.service .sub-title{
+    color: #e62b4a;
+    font-size: 14px;
+}
+.service h2{
+    font-size: 50px;
+}
+/* lấy thẻ p cuối */
+.service .service-title p:last-of-type{
+    color: #888888;
+    /* độ dày */
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.service .service-content .content-item{
+    background-color: white;
+    color: #888888;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.service .service-content .content-item-wrapper{
+    padding: 0 10px;
+}
+.service .service-content .content-item p{
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.service .service-content .content-item i{
+    font-size: 50px;
+}
+.service .content-item {
+    position: relative;
+}
+
+.service .content-item::before{
+    content: "";
+    display: inline-block;
+    height: 0;
+    width: 5px;
+    background-color: #e62b4a;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.service .content-item:hover::before{
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.service .slick-dots li button::before{
+    font-size: 15px;
+    color: white;
+}
+
+.service .slick-dots .slick-active button::before{
+    color: #e62b4a;
+}
+
+/* blog  */
+.blog .blog-content{
+    display: grid;
+    /* tạo ra bao nhiu cột  */
+    /* repeat: số lần lặp, 1fr  */
+    grid-template-columns: repeat(4, 1fr);
+    /* chia khoảng cách giữa cột và dòng */
+    gap: 20px;
+}
+.blog .blog-content img{
+    /* calc đưa ra con số chuẩn */
+    width: 100%;
+    /* làm nhòe hình ảnh :blur */
+    /* brightness làm ảnh giảm độ sáng , tăng độ sáng */
+    /* contrast : độ tượng phản  */
+    /* opacity: 0 -> 1  */
+    /* làm xám ảnh : grayscale  */
+    filter: grayscale(50%) contrast(50%);
+    height: 100%;
+    object-fit: cover;
+}
+.blog .blog-content .blog-content-item:first-of-type{
+    /* bắt đầu từ 1 hợp nhất 2 cột or hàng*/
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+.blog .blog-content .blog-content-item:last-of-type{
+    /* bắt đầu từ 3 hợp nhất 2 cột or hàng*/
+    grid-column: 3 / span 2;
+    grid-row: 3 / span 2;
+}
+.blog .blog-content .blog-content-item{
+    position: relative;
+    /* hidden : không bấm được nội dung  */
+    overflow: hidden;
+    
+}
+.blog .blog-title{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.blog .blog-title .sub-title{
+    color: #888888;
+    font-weight: 400;
+} 
+.blog h2{
+    font-size: 50px;
+    color: black;
+}
+.blog p:last-of-type{
+    color: #888888;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+.blog h3{
+    color: white;
+}
+.blog .blog-content-item .overplay{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #e62b4a83;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+    opacity: 0;
+    transition: all 0.8s;
+}
+.blog .blog-content-item .overplay .overplay-icon{
+    text-align: right; 
+    transform: translateY(100px);
+}
+.blog .blog-content-item .overplay .overplay-icon i{
+    color: black;
+    background-color: white;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: all 0.8s;
+}
+.blog .blog-content-item .overplay .overplay-icon i:hover{
+    color: white;
+    background-color: black;
+}
+.blog .blog-content-item .overplay .overplay-text{
+    transform: translateY(100px);
+    transition: all 0.5s;
+}
+.blog .blog-content-item:hover .overplay{
+    opacity: 1; 
+}
+.blog .blog-content-item:hover .overplay-icon{
+    transform: translateY(0);
+}
+.blog .blog-content-item:hover .overplay-text{
+    transform: translateY(0);
+}
+/* .fa-classic,.fa-regular,.fa-solid,.far,.fas{
+    background-color: white;
+    color: black;
+    padding: 10px;
+} */
+/* NUMBER  */
+.number{
+    background-color: black;
+    color: white;
+}
+.number .number-content{
+    display: flex;
+
+}
+.number .number-content .number-item{
+    flex: 1;
+    text-align: center;
+}
+.number .number-content .number-item h3{
+    font-size: 60px;
+    font-weight: 300;
+}
+.number .number-content .number-item p{
+    font-size: 20px;
+    color: #888876;
+}
+
+/* DIGITAL  */
+.digital{
+    background-image: url(../img/bussiness_img_1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    /* kéo tới đâu ảnh theo tới đó  */
+   background-attachment: fixed;
+}
+.digital .sub-title{
+    color: #e62b4a;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.digital h2{
+    color: white;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.digital p:last-of-type{
+    color: #888888;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.digital video{
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* CONTACT  */
+.contact .contact-content{
+    display: flex;
+}
+.contact .contact-title{
+    text-align: center;
+}
+.contact h2{
+    font-size: 50px;
+    font-weight: 400;
+}
+.contact p{
+    font-size: 16px;
+    font-weight: 700;
+    color: #888888;
+    margin: 20px 0;
+}
+.contact .contact-content-left{
+    width: 60%;
+}
+
+.contact .contact-content-right{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.contact .contact-content-right input, .contact .contact-content-right textarea{
+    padding: 16px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    border: 1px solid #888888;
+    font-weight: 400;
+}
+
+.contact .contact-content-right button{
+    color: white;
+    padding: 15px 15px;
+    text-transform: uppercase;
+    background-color: black;
+    border: 1px solid black;
+    letter-spacing: 2px;
+    transition: all 0.5s;
+}
+.contact .contact-content-right button:hover{
+    background-color: #e62b4a;
+    border-color: #e62b4a;
+}
+.contact .contact-content-right textarea{
+    flex: 1;
+    resize: none;
+}
+
+.back-to-top-button{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.25);
+    opacity: 0;
+    visibility: hidden;
+}
+.cd-top--is-visible { 
+    visibility: visible;
+    opacity: 1;
+  }
+.cd-top--fade-out { 
+    opacity: .5;
+}
+@keyframes arrowGoDown{
+    from{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}
+
+/* FOOTER  */
+footer{
+    background-color: black;
+    color: white;
+}
+footer .footer-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+footer .footer-content i{
+    color: white;
+    width: 54px;
+    height: 54px;
+    display: inline-block;
+    margin-left: 5px;
+    border-radius: 50%;
+    border: 1px solid white;
+    line-height: 54px;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+footer .footer-content i:hover{
+    background-color: #e62b4a;
+
+}
+
+/* before và after  */
+/* before , after phai co content  */
+/* .demo-before-after{
+    height: 60vh;
+    background-color: purple;
+    position: relative;
+}
+.demo-before-after::before{
+    /* before đứng trước  */
+    /* content: "";
+    width: 150px;
+    height: 150%;
+    display: inline-block;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.demo-before-after::after{
+    /* after sau  */
+    /* content: "đi học";
+} */
+/* .service p{
+    font-size: 16px;
+    color: #888888;
+    /* độ dày */
+    /* font-weight: 600;
+} */ 
+/* demo position */
+/* .demo-position{
+    background-color: black;
+    height: 100vh;
+    position: relative;
+}
+.demo1{
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    /* position: static; */
+    
+    /* position: relative; */
+    /* top, bottom, left, right khác với static dùng được*/
+    /* left: 50px; dương: phải âm: trái  */
+    /* right:-50px; dương: trái âm: phải  */
+    /* top: 50px */
+    /* bottom: 50px  */
+    /* position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+} */ 
+
+/* .demo2{
+    width: 200px;
+    height: 200px;
+    background-color: blue; */
+    /* transform: translateX(100px) translateY(100px); */
+    /* transform: translate(20px 30px); */
+    /* gấp đôi lên */
+    /* transform: scale(2); */
+    /* xoay ảnh 1 góc 45 độ  */
+    /* transform: rotate(45deg); */
+    /* position: relative; */
+    /* z-index: 3; */
+/* } */
+/* .hero-banner:hover h1{
+    color: red;
+} */
+/* header{ */
+    /* chiều cao  */
+    /* vh(viewport height) 100vh */
+    /* vw(viewport width) 100vh */
+    /* height: 100vh;
+    background-color: black; */
+    /* tất cả thẻ con nằm trên cùng một dòng */
+    /* display: flex; */
+    /* trục chính : trục ngang */
+    /* trục phụ : trục dọc */
+    /* justify-content: center;  (giữa) */
+    /* (phần tử đầu nằm bên tay trái, còn lại tay phải) */
+    /* justify-content: space-between;  */
+    /* justify-content: flex-end;(phần tử nằm toàn bộ bên phải) */
+    /* align-items: center; */
+    /* flex-direction: row-reverse; (trái qua phải) */
+    /* flex-direction: column-reverse; */
+    /* margin là tạo khoảng cách giữa 2 phần tử, bên ngoài */
+    /* padding là đẩy vào bên trong cách phần viền*/
+/* } */
+/* công thức tính chiều dài và chiều cao của một thẻ html  */
+/* chiều dài= width + padding-left + padding right + border l + border r  */
+/* 150+10+2+2=164px */
+
+/* width =nội dung bên trong +  padding-left + padding right + border l + border r  */
+/* .header-logo{
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    margin: 30px 20px;
+    padding: 30px 40px;
+    /* 1px nét thẳng màu đỏ */
+    /* border: 1px solid red; */
+    /* đồ dài đường viền */
+    /* border-width: ; */
+    /* kiểu đường viền */
+    /* border-style: ; */
+    /* màu viền */
+    /* border-color: ; */
+/* } */ 
+
+/* .header-navigation{
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+} */
+
